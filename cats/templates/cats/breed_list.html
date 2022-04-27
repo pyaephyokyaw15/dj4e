@@ -7,15 +7,15 @@
     {% for breed in breed_list %}
       <li>
           {{ breed.name }}
-         (<a href="#">Update</a> |
-          <a href="#">Delete</a>)
+         (<a href="{% url 'cats:breed_update' breed.id %}">Update</a> |
+          <a href="{% url 'cats:breed_delete' breed.id %}">Delete</a>)
       </li>
     {% endfor %}
   </ul>
   {% else %}
     <p>There are no breeds in the library.</p>
   {% endif %}
-  <p><a href="#">Add a breed</a></p>
+  <p><a href="{% url 'cats:breed_create' %}">Add a breed</a></p>
   <p>
     <a href="{% url 'cats:all' %}">Back to cats</a>
   </p>
