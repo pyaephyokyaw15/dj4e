@@ -9,18 +9,19 @@ from cats.models import Cat, Breed
 # Create your views here.
 
 
-class CatList(LoginRequiredMixin, View):
+class CatView(LoginRequiredMixin, View):
     def get(self, request):
-        cat = Cat.objects.all().count()
-        breed = Breed.objects.all()
+        breed_count = Breed.objects.all().count()
+        cats = Cat.objects.all()
 
-        ctx = {'make_count': mc, 'auto_list': al}
+        ctx = {'breed_count': breed_count, 'cat_list': cats}
         return render(request, 'cats/cat_list.html', ctx)
 
 
-class CatCreate(LoginRequiredMixin, View):
-    pass
+class BreedView(LoginRequiredMixin, View):
+    def get(self, request):
+        breed_list = Breed.objects.all()
+        ctx = {'breed_list': breed_list}
+        return render(request, 'cats/breed_list.html', ctx)
 
 
-class CatUpdate(LoginRequiredMixin, View):
-    pass

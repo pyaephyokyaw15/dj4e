@@ -7,24 +7,24 @@
     {% for cat in cat_list %}
       <li>
           {{ cat.nickname }} ({{ cat.breed }})
-          (<a href="{% url 'autos:auto_update' auto.id %}">Update</a> |
-          <a href="{% url 'autos:auto_delete' auto.id %}">Delete</a>) <br/>
-          {{ auto.comments }} ({{ auto.mileage }} miles)
+          (<a href="#">Update</a> |
+          <a href="#}">Delete</a>) <br/>
+          {{ cat.weight }} ({{ cat.foods }} )
       </li>
     {% endfor %}
   </ul>
   {% else %}
-    <p>There are no autos in the library.</p>
+    <p>There are no cats in the library.</p>
   {% endif %}
   <p>
-    {% if make_count > 0 %}
-      <a href="{% url 'autos:auto_create' %}">Add an auto</a>
+    {% if breed_count > 0 %}
+      <a href="#">Add a cat</a>
     {% else %}
-      Please add a make before you add an auto.
+      Please add a breed before you add a cat.
     {% endif %}
   </p>
   <p>
-  <a href="{% url 'autos:make_list' %}">View makes</a> ({{ make_count }}) | 
-    <a href="{% url 'autos:make_create' %}">Add a make</a>
+  <a href="{% url 'cats:breed_list' %}">View breeds</a> ({{ breed_count }}) |
+    <a href="#">Add a breed</a>
   </p>
 {% endblock %}
